@@ -6,10 +6,7 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
     <h1>Test site please ignore</h1>
-  </Layout>
 )
 
 export default IndexPage
