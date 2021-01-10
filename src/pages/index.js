@@ -13,7 +13,7 @@ const IndexPage = () => (
      <table class="table mb-0">
          <thead>
          <tr>
-             <th>Title</th>
+             <th>fefe</th>
              <th>Owner</th>
              <th>Download</th>
              <th>Delete</th>
