@@ -1,5 +1,5 @@
 ---
-Title: "Johnny's image repository"
+title: "Johnny's image repository"
 date: "2021-01-10"
 ---
 

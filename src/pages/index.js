@@ -3,24 +3,61 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
- <Layout>
-	<SEO title="Home" />
-         <h2>Files</h2>
-         <p>
-	    	<Link to="/upload/">Upload</Link> <br />
-         </p>
-     <table class="table mb-0">
-         <thead>
-         <tr>
-             <th>fefe</th>
-             <th>Owner</th>
-             <th>Download</th>
-             <th>Delete</th>
-         </tr>
-         </thead>
-     </table>
- </Layout>
-)
+class IndexPage extends React.Component {
+  state = {
+    loading: true,
+    error: false,
+    fetchedData: [],
+  }
+
+  componentDidMount() {
+    fetch("https://cors-anywhere.herokuapp.com/https://johnnypark.ca/api/imagelist").then(response => {
+      return response.json()
+    }).then(json => {
+      console.log(json)
+      this.setState({
+        loading: false,
+        fetchedData: json
+      })
+    })
+  }
+  render() {
+    const { loading, fetchedData } = this.state
+    return (
+      <Layout>
+        <SEO title="Home" />
+        <h2>Files</h2>
+        <p>
+          <Link to="/upload/">Upload</Link> <br />
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Owner</th>
+              <th>Download</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {loading ? (
+              <tr>Loading...</tr>
+            ) : (
+                fetchedData.map(arr =>
+                  <tr>
+                    <td>{arr.title}</td>
+                    <td>{arr.owner}</td>
+                    <td>{arr.file}</td>
+                  </tr>
+                )
+              )
+            }
+          </tbody>
+        </table>
+      </Layout>
+    )
+  }
+}
 
 export default IndexPage
