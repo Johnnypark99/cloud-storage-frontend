@@ -11,10 +11,9 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://cors-anywhere.herokuapp.com/https://johnnypark.ca/api/imagelist").then(response => {
+    fetch("https://johnnypark.ca/api/imagelist").then(response => {
       return response.json()
     }).then(json => {
-      console.log(json)
       this.setState({
         loading: false,
         fetchedData: json
@@ -41,17 +40,13 @@ class IndexPage extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {loading ? (
-              <tr>Loading...</tr>
-            ) : (
-                fetchedData.map(arr =>
+            {fetchedData.map(arr =>
                   <tr>
                     <td>{arr.title}</td>
                     <td>{arr.owner}</td>
                     <td>{arr.file}</td>
                   </tr>
                 )
-              )
             }
           </tbody>
         </table>
