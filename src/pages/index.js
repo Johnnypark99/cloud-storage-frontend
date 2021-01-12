@@ -22,12 +22,13 @@ class IndexPage extends React.Component {
   }
   render() {
     const { loading, fetchedData } = this.state
+    console.log(fetchedData)
     return (
       <Layout>
         <SEO title="Home" />
         <h2>Files</h2>
         <p>
-          <Link to="/upload/">Upload</Link> <br />
+        <button onClick={()=>{window.location='/upload/'}}>Upload</button> <br />
         </p>
 
         <table>
@@ -44,7 +45,7 @@ class IndexPage extends React.Component {
                   <tr>
                     <td>{arr.title}</td>
                     <td>{arr.owner}</td>
-                    <td>{arr.file}</td>
+                    <td><button onClick={()=>{window.location='https://johnnypark.ca/media/'+arr.file}}>Click me</button></td>
                   </tr>
                 )
             }
