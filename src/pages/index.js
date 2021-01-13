@@ -22,7 +22,6 @@ class IndexPage extends React.Component {
   }
   render() {
     const { loading, fetchedData } = this.state
-    console.log(fetchedData)
     return (
       <Layout>
         <SEO title="Home" />
@@ -45,7 +44,12 @@ class IndexPage extends React.Component {
                   <tr>
                     <td>{arr.title}</td>
                     <td>{arr.owner}</td>
-                    <td><button onClick={()=>{window.location='https://johnnypark.ca/media/'+arr.file}}>Click me</button></td>
+                    <td><button onClick={()=>{window.location='https://johnnypark.ca/api/image/'+arr.id}}>Download</button></td>
+                    <td>
+                      <form method="post" action={"https://johnnypark.ca/api/image_delete/"+arr.id}>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                      </form>
+                    </td>
                   </tr>
                 )
             }
