@@ -55,6 +55,7 @@ class IndexPage extends React.Component {
             }
           </tbody>
         </table>
+      <a href="/instructions/">Instructions & Explanations</a>
       </Layout>
     )
   }
