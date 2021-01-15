@@ -5,7 +5,7 @@ const Instructions = () => (
   <Layout>
     <body>
       <h2>Instructions</h2>
-      <p>User can upload and download one file at a time. Mutli-upload/download and authentication feature coming soon!</p>
+      <p>Authentication feature coming soon!</p>
       <p>To test this image system in development environment, download the frontend and backend code shown in the GitHub link below.</p>
       <p>Please note, the backend portion in my GitHub, some parts are allocated for my personal website johnnypark.ca, which are irrelavant to the imagesystem.</p>
       <p> All the API calls used for this imagesystem start with a path of johnnypark.ca/api/*</p>

@@ -29,12 +29,7 @@ class IndexPage extends React.Component {
       <Layout>
         <SEO title="Home" />
         <h2>Files</h2>
-        <p>
-        <form method="post" enctype="multipart/form-data" action="https://johnnypark.ca/api/image_upload/" multiple>
-        <input name="file" type="file" multiple />
-        <button type="submit" class="btn btn-primary">Upload file</button>
-      </form>        </p>
-
+        <button onClick={()=>{window.location='/upload/'}}>Upload</button> <br />        
         <table>
           <thead>
             <tr>

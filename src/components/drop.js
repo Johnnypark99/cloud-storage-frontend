@@ -21,7 +21,7 @@ const Dropzone = ({ onDrop, accept }) => {
           <p className="dropzone-content"></p>
         ) : (
           <p className="dropzone-content">
-            Drop files here
+            Drag and Drop here
           </p>
         )}
       </div>
