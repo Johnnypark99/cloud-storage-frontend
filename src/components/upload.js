@@ -26,10 +26,7 @@ function App() {
 
     fetch("https://johnnypark.ca/api/image_upload/", requestOptions).then(
       response => {
-        if ( response.redirected) {
-          window.location.href = "https://image.johnnypark.ca";
-          return;
-       }
+        window.location.href = "https://image.johnnypark.ca";
       return response
       })
 
