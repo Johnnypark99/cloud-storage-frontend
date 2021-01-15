@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import App from "../components/upload"
 
 class IndexPage extends React.Component {
   state = {
@@ -29,12 +30,9 @@ class IndexPage extends React.Component {
       <Layout>
         <SEO title="Home" />
         <h2>Files</h2>
-        <button onClick={()=>{window.location='/upload/'}}>Upload</button> <br />        
         <table>
           <thead>
             <tr>
-              <th>Download</th>
-              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -51,6 +49,8 @@ class IndexPage extends React.Component {
             }
           </tbody>
         </table>
+        <App/>
+        <br></br><br></br>
       <a href="/instructions/">Instructions & Explanations</a>
       </Layout>
     )

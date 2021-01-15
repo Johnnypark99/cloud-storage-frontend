@@ -1,24 +1,7 @@
-// import React from "react"
-// import Layout from "../components/layout"
-
-// const Upload = () => (
-//   <Layout>
-//     <body>
-//       <h2>Upload file</h2>
-//       <form method="post" enctype="multipart/form-data" action="https://johnnypark.ca/api/image_upload/" multiple>
-//         <input name="file" type="file" multiple />
-//         <button type="submit" class="btn btn-primary">Upload file</button>
-//       </form>
-//     </body>
-//   </Layout>
-// )
-
-// export default Upload
-
 import React, { useCallback } from "react";
 // Import the dropzone component
-import Dropzone from "../components/drop";
-import Layout from "../components/layout"
+import Dropzone from "./drop";
+import Layout from "./layout"
 
 
 import "../components/drop.css";
@@ -30,10 +13,6 @@ function App() {
     console.log(acceptedFiles);
 
     const formData = new FormData();
-    //formData.append(acceptedFiles[0]);
-    // for (file in acceptedFiles){
-    //   formData.append('file', file)
-    // }    
     let file;
     for(file in acceptedFiles){
       formData.append("file", acceptedFiles[file]);
@@ -47,21 +26,20 @@ function App() {
 
     fetch("https://johnnypark.ca/api/image_upload/", requestOptions).then(
       response => {
+        if ( response.redirected) {
+          window.location.href = response.url;
+          return;
+       }
       return response
-      }).then(
-        result => console.log('Success:', result
-        ))
+      })
 
   }, []);
 
   // We pass onDrop function and accept prop to the component. It will be used as initial params for useDropzone hook
   return (
-    <Layout>
       <main className="App">
-        <h1 className="text-center">Upload files</h1>
         <Dropzone onDrop={onDrop} />
       </main>
-    </Layout>
   );
 }
 
