@@ -24,7 +24,6 @@ function App() {
       header: {
       'Access-Control-Allow-Origin': '*',
       },
-      mode: "no-cors",
       body: formData,
     };
 
