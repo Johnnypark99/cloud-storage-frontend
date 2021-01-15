@@ -45,7 +45,7 @@ function App() {
       body: formData,
     };
 
-    fetch("http://localhost:3000/api/image_upload/", requestOptions).then(
+    fetch("https://johnnypark.ca/api/image_upload/", requestOptions).then(
       response => {
       return response
       }).then(
