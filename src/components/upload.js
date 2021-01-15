@@ -21,6 +21,10 @@ function App() {
     console.log(formData.getAll("file"));
      const requestOptions = {
       method: 'POST',
+      header: {
+      'Access-Control-Allow-Origin': '*',
+      },
+      crossdomain: true,
       body: formData,
     };
 
