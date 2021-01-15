@@ -30,7 +30,7 @@ function App() {
 
     fetch("https://johnnypark.ca/api/image_upload/", requestOptions).then(
       response => {
-        window.location.href = "https://image.johnnypark.ca";
+        window.location.reload();
       return response
       })
 
