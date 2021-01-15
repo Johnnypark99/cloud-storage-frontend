@@ -22,19 +22,22 @@ class IndexPage extends React.Component {
   }
   render() {
     const { loading, fetchedData } = this.state
+    // fetchedData.map(arr =>{
+    //   console.log(arr.file.split('/').pop());
+    // })
     return (
       <Layout>
         <SEO title="Home" />
         <h2>Files</h2>
         <p>
-        <button onClick={()=>{window.location='/upload/'}}>Upload</button> <br />
-        </p>
+        <form method="post" enctype="multipart/form-data" action="https://johnnypark.ca/api/image_upload/" multiple>
+        <input name="file" type="file" multiple />
+        <button type="submit" class="btn btn-primary">Upload file</button>
+      </form>        </p>
 
         <table>
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Owner</th>
               <th>Download</th>
               <th>Delete</th>
             </tr>
@@ -42,9 +45,7 @@ class IndexPage extends React.Component {
           <tbody>
             {fetchedData.map(arr =>
                   <tr>
-                    <td>{arr.title}</td>
-                    <td>{arr.owner}</td>
-                    <td><button onClick={()=>{window.location='https://johnnypark.ca/api/image/'+arr.id}}>Download</button></td>
+                    <td><Link to={"https://johnnypark.ca/api/image/"+arr.id}>{arr.file.split('/').pop()}</Link></td>
                     <td>
                       <form method="post" action={"https://johnnypark.ca/api/image_delete/"+arr.id}>
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
