@@ -21,9 +21,9 @@ function App() {
     console.log(formData.getAll("file"));
      const requestOptions = {
       method: 'POST',
-      header: {
-      'Access-Control-Allow-Origin': '*',
-      },
+      mode: 'cors',
+      credentials: 'include',
+      withCredentials: true,
       body: formData,
     };
 
