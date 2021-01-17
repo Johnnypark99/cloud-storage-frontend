@@ -22,7 +22,6 @@ function App() {
      const requestOptions = {
       method: 'POST',
       mode: 'cors',
-      credentials: 'include',
       withCredentials: true,
       body: formData,
     };
